@@ -1,0 +1,22 @@
+11-18 19:22:01.061  4527  4527 D FLOW    : 7. VIEW: recomposition, jumlah todo=4
+11-18 19:22:01.096  4527  4527 D FLOW    : 7. VIEW: recomposition, jumlah todo=4
+11-18 19:22:01.145  4527  4527 D FLOW    : 7. VIEW: recomposition, jumlah todo=4
+11-18 19:22:01.166  4527  4527 D FLOW    : 7. VIEW: recomposition, jumlah todo=4
+11-18 19:22:02.246  4527  4527 D FLOW    : 1. VIEW: tombol Add diklik, title=LogcatDemo
+11-18 19:22:02.246  4527  4527 D FLOW    : 2. VIEWMODEL: addTodo(Todo(id=0, title=LogcatDemo, completed=false))
+11-18 19:22:02.249  4527  4596 I okhttp.OkHttpClient: --> POST http://10.0.2.2:3000/api/todos
+11-18 19:22:02.249  4527  4596 I okhttp.OkHttpClient: {"completed":false,"id":0,"title":"LogcatDemo"}
+11-18 19:22:02.249  4527  4596 I okhttp.OkHttpClient: --> END POST (47-byte body)
+11-18 19:22:02.250  4527  4527 D FLOW    : 7. VIEW: recomposition, jumlah todo=4
+11-18 19:22:02.258  4527  4596 I okhttp.OkHttpClient: <-- 201 Created http://10.0.2.2:3000/api/todos (9ms)
+11-18 19:22:02.259  4527  4596 I okhttp.OkHttpClient: {"id":7,"title":"LogcatDemo","completed":false}
+11-18 19:22:02.259  4527  4596 I okhttp.OkHttpClient: <-- END HTTP (47-byte body)
+11-18 19:22:02.264  4527  4527 D FLOW    : 5. VIEWMODEL: onResponse code=201
+11-18 19:22:02.264  4527  4596 I okhttp.OkHttpClient: --> GET http://10.0.2.2:3000/api/todos
+11-18 19:22:02.264  4527  4596 I okhttp.OkHttpClient: --> END GET
+11-18 19:22:02.266  4527  4527 D FLOW    : 7. VIEW: recomposition, jumlah todo=4
+11-18 19:22:02.269  4527  4596 I okhttp.OkHttpClient: <-- 200 OK http://10.0.2.2:3000/api/todos (4ms)
+11-18 19:22:02.269  4527  4596 I okhttp.OkHttpClient: [{"id":1,"title":"Eat","completed":false},{"id":2,"title":"Sleep","completed":true},{"id":5,"title":"Drink","completed":false},{"id":6,"title":"BelajarRetrofit","completed":false},{"id":7,"title":"LogcatDemo","completed":false}]
+11-18 19:22:02.269  4527  4596 I okhttp.OkHttpClient: <-- END HTTP (228-byte body)
+11-18 19:22:02.278  4527  4527 D FLOW    : 6. VIEWMODEL: _todos diperbarui, jumlah=5
+11-18 19:22:02.283  4527  4527 D FLOW    : 7. VIEW: recomposition, jumlah todo=5

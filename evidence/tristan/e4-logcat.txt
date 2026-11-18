@@ -1,0 +1,5 @@
+11-18 19:18:24.256  4005  4005 D FLOW    : 7. VIEW: recomposition, jumlah todo=0
+11-18 19:18:24.256  4005  4070 I okhttp.OkHttpClient: --> GET http://10.0.2.2:3000/api/todos
+11-18 19:18:24.256  4005  4070 I okhttp.OkHttpClient: --> END GET
+11-18 19:18:24.259  4005  4070 I okhttp.OkHttpClient: <-- HTTP FAILED: java.net.UnknownServiceException: CLEARTEXT communication to 10.0.2.2 not permitted by network security policy
+11-18 19:18:24.428  4005  4005 D FLOW    : 7. VIEW: recomposition, jumlah todo=0

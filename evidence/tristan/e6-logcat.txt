@@ -1,0 +1,25 @@
+11-18 19:19:43.637  4244  4244 D FLOW    : 7. VIEW: recomposition, jumlah todo=0
+11-18 19:19:43.637  4244  4294 I okhttp.OkHttpClient: --> GET http://10.0.2.2:3000/api/todo
+11-18 19:19:43.637  4244  4294 I okhttp.OkHttpClient: --> END GET
+11-18 19:19:43.643  4244  4294 I okhttp.OkHttpClient: <-- 404 Not Found http://10.0.2.2:3000/api/todo (6ms)
+11-18 19:19:43.643  4244  4294 I okhttp.OkHttpClient: X-Powered-By: Express
+11-18 19:19:43.643  4244  4294 I okhttp.OkHttpClient: Access-Control-Allow-Origin: *
+11-18 19:19:43.643  4244  4294 I okhttp.OkHttpClient: Content-Security-Policy: default-src 'none'
+11-18 19:19:43.643  4244  4294 I okhttp.OkHttpClient: X-Content-Type-Options: nosniff
+11-18 19:19:43.643  4244  4294 I okhttp.OkHttpClient: Content-Type: text/html; charset=utf-8
+11-18 19:19:43.643  4244  4294 I okhttp.OkHttpClient: Content-Length: 147
+11-18 19:19:43.643  4244  4294 I okhttp.OkHttpClient: Date: Wed, 18 Nov 2026 12:19:43 GMT
+11-18 19:19:43.643  4244  4294 I okhttp.OkHttpClient: Connection: keep-alive
+11-18 19:19:43.643  4244  4294 I okhttp.OkHttpClient: Keep-Alive: timeout=5
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: <!DOCTYPE html>
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: <html lang="en">
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: <head>
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: <meta charset="utf-8">
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: <title>Error</title>
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: </head>
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: <body>
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: <pre>Cannot GET /api/todo</pre>
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: </body>
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: </html>
+11-18 19:19:43.644  4244  4294 I okhttp.OkHttpClient: <-- END HTTP (147-byte body)
+11-18 19:19:43.826  4244  4244 D FLOW    : 7. VIEW: recomposition, jumlah todo=0

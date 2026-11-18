@@ -1,0 +1,3 @@
+2026-11-18T12:22:02.538Z GET /api/todos {}
+2026-11-18T12:22:20.975Z PUT /api/todos/1 { completed: true, id: 1, title: 'Eat' }
+2026-11-18T12:22:20.985Z GET /api/todos {}

@@ -1,0 +1,5 @@
+11-18 19:17:01.096  3786  3820 I okhttp.OkHttpClient: --> GET http://localhost:3000/api/todos
+11-18 19:17:01.096  3786  3820 I okhttp.OkHttpClient: --> END GET
+11-18 19:17:01.103  3786  3786 D FLOW    : 7. VIEW: recomposition, jumlah todo=0
+11-18 19:17:01.106  3786  3820 I okhttp.OkHttpClient: <-- HTTP FAILED: java.net.ConnectException: Failed to connect to localhost/127.0.0.1:3000
+11-18 19:17:01.397  3786  3786 D FLOW    : 7. VIEW: recomposition, jumlah todo=0

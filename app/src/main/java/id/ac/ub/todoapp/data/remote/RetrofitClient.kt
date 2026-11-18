@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClient {
     // Emulator: 10.0.2.2. HP fisik: ganti dengan IP LAN komputer.
     // Wajib diakhiri tanda "/"
-    private const val BASE_URL = "http://localhost:3000/api/"
+    private const val BASE_URL = "http://10.0.2.2:3000/api/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY

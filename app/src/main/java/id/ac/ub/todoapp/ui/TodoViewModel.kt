@@ -8,10 +8,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import okio.IOException
-import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Response
+import java.io.IOException
 
 class TodoViewModel : ViewModel() {
 
@@ -43,7 +41,7 @@ class TodoViewModel : ViewModel() {
                     _error.value = "Server error: HTTP ${response.code()}"
                 }
             } catch (e: IOException) {
-                _error.value = "Tidak bisa terhubung ke sever dengan pesan: ${e.message}"
+                _error.value = "Tidak dapat terhubung ke server: ${e.message}"
             } finally {
                 _isLoading.value = false
             }
@@ -77,7 +75,7 @@ class TodoViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     fetchTodos()
                 } else {
-                    _error.value = "$action gagal: HTTP Response ${response.code()}"
+                    _error.value = "$action gagal: HTTP ${response.code()}"
                 }
             } catch (e: IOException) {
                 _error.value = "$action gagal: ${e.message}"

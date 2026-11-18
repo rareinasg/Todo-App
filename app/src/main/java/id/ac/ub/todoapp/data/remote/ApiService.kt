@@ -17,8 +17,8 @@ interface ApiService {
     suspend fun addTodo(@Body todo: Todo): Response<Todo>
 
     @PUT("todos/{id}")
-    suspend fun updateTodo(@Path("id") id: Int, @Body todo: Todo): Response<Void>
+    suspend fun updateTodo(@Path("id") id: Int, @Body todo: Todo): Response<Unit>
 
     @DELETE("todos/{id}")
-    suspend fun deleteTodo(@Path("id") id: Int): Response<Void>
+    suspend fun deleteTodo(@Path("id") id: Int): Response<Unit>
 }

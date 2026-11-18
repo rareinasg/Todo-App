@@ -1,7 +1,7 @@
 package id.ac.ub.todoapp.data.remote
 
 import id.ac.ub.todoapp.data.model.Todo
-import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -11,14 +11,14 @@ import retrofit2.http.Path
 
 interface ApiService {
     @GET("todos")
-    fun getTodos(): Call<List<Todo>>
+    suspend fun getTodos(): Response<List<Todo>>
 
     @POST("todos")
-    fun addTodo(@Body todo: Todo): Call<Todo>
+    suspend fun addTodo(@Body todo: Todo): Response<Todo>
 
     @PUT("todos/{id}")
-    fun updateTodo(@Path("id") id: Int, @Body todo: Todo): Call<Void>
+    suspend fun updateTodo(@Path("id") id: Int, @Body todo: Todo): Response<Void>
 
     @DELETE("todos/{id}")
-    fun deleteTodo(@Path("id") id: Int): Call<Void>
+    suspend fun deleteTodo(@Path("id") id: Int): Response<Void>
 }

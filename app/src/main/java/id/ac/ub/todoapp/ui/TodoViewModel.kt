@@ -1,11 +1,14 @@
 package id.ac.ub.todoapp.ui
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import id.ac.ub.todoapp.data.model.Todo
 import id.ac.ub.todoapp.data.remote.RetrofitClient
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import okio.IOException
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,23 +32,24 @@ class TodoViewModel : ViewModel() {
 
     // READ
     fun fetchTodos() {
-        _isLoading.value = true
-        api.getTodos().enqueue(object : Callback<List<Todo>> {
-            override fun onResponse(call: Call<List<Todo>>, response: Response<List<Todo>>) {
-                _isLoading.value = false
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val response = api.getTodos()
                 if (response.isSuccessful) {
                     _todos.value = response.body() ?: emptyList()
                     _error.value = null
                 } else {
+                    val esponse = null
                     _error.value = "Server error: HTTP ${response.code()}"
                 }
-            }
-
-            override fun onFailure(call: Call<List<Todo>>, t: Throwable) {
+            } catch (e: IOException) {
+                _error.value = "Tidak bisa terhubung ke sever dengan pesan: ${e.message}"
+            } finally {
                 _isLoading.value = false
-                _error.value = "Tidak dapat terhubung ke server: ${t.message}"
             }
-        })
+        }
+        }
     }
 
     // CREATE

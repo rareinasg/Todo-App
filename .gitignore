@@ -18,3 +18,6 @@ local.properties
 node_modules/
 .env
 *.log
+
+# Local-only sprint record
+/MERGE-SPRINT.md

@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Node.js API (todo-api/)
+node_modules/
+.env
+*.log

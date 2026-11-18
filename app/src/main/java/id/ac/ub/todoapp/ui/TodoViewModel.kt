@@ -40,7 +40,6 @@ class TodoViewModel : ViewModel() {
                     _todos.value = response.body() ?: emptyList()
                     _error.value = null
                 } else {
-                    val esponse = null
                     _error.value = "Server error: HTTP ${response.code()}"
                 }
             } catch (e: IOException) {

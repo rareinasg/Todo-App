@@ -54,12 +54,12 @@ class TodoViewModel : ViewModel() {
     }
 
     // UPDATE
-    fun updateTodo(todo: Todo) = mutate("Update todo") {
+    fun updateTodo(todo: Todo) = mutate("Ubah todo") {
         api.updateTodo(todo.id, todo)
     }
 
     // DELETE
-    fun deleteTodo(id: Int) = mutate("Delete todo") {
+    fun deleteTodo(id: Int) = mutate("Hapus todo") {
         api.deleteTodo(id)
     }
 

@@ -61,4 +61,7 @@ dependencies {
     // ViewModel untuk Compose dan collectAsStateWithLifecycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+
+    // Ikon inti Material (Add, Delete)
+    implementation("androidx.compose.material:material-icons-core")
 }

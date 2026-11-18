@@ -1,14 +1,15 @@
 package id.ac.ub.todoapp.ui
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import id.ac.ub.todoapp.data.model.Todo
 import id.ac.ub.todoapp.data.remote.RetrofitClient
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import retrofit2.Call
-import retrofit2.Callback
+import kotlinx.coroutines.launch
 import retrofit2.Response
+import java.io.IOException
 
 class TodoViewModel : ViewModel() {
 
@@ -29,60 +30,56 @@ class TodoViewModel : ViewModel() {
 
     // READ
     fun fetchTodos() {
-        _isLoading.value = true
-        api.getTodos().enqueue(object : Callback<List<Todo>> {
-
-            override fun onResponse(call: Call<List<Todo>>, response: Response<List<Todo>>) {
-                _isLoading.value = false
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val response = api.getTodos()
                 if (response.isSuccessful) {
                     _todos.value = response.body() ?: emptyList()
                     _error.value = null
                 } else {
                     _error.value = "Server error: HTTP ${response.code()}"
                 }
-            }
-
-            override fun onFailure(call: Call<List<Todo>>, t: Throwable) {
+            } catch (e: IOException) {
+                _error.value = "Tidak dapat terhubung ke server: ${e.message}"
+            } finally {
                 _isLoading.value = false
-                _error.value = "Tidak dapat terhubung ke server: ${t.message}"
             }
-        })
+        }
     }
 
     // CREATE
-    fun addTodo(todo: Todo) {
-        api.addTodo(todo).enqueueThenRefresh("Tambah todo")
+    fun addTodo(todo: Todo) = mutate("Tambah todo") {
+        api.addTodo(todo)
     }
 
     // UPDATE
-    fun updateTodo(todo: Todo) {
-        api.updateTodo(todo.id, todo).enqueueThenRefresh("Ubah todo")
+    fun updateTodo(todo: Todo) = mutate("Ubah todo") {
+        api.updateTodo(todo.id, todo)
     }
 
     // DELETE
-    fun deleteTodo(id: Int) {
-        api.deleteTodo(id).enqueueThenRefresh("Hapus todo")
+    fun deleteTodo(id: Int) = mutate("Hapus todo") {
+        api.deleteTodo(id)
     }
 
     fun clearError() {
         _error.value = null
     }
 
-    // Helper: pola callback untuk operasi tulis (create, update, delete) sama persis.
-    // Jika sukses, muat ulang data dari server supaya UI selalu sesuai database.
-    private fun <T> Call<T>.enqueueThenRefresh(action: String) {
-        enqueue(object : Callback<T> {
-            override fun onResponse(call: Call<T>, response: Response<T>) {
+    // Satu fungsi untuk semua operasi tulis: panggil API, cek hasil, muat ulang.
+    private fun <T> mutate(action: String, call: suspend() -> Response<T>) {
+        viewModelScope.launch {
+            try {
+                val response = call()
                 if (response.isSuccessful) {
                     fetchTodos()
                 } else {
                     _error.value = "$action gagal: HTTP ${response.code()}"
                 }
+            } catch (e: IOException) {
+                _error.value = "$action gagal: ${e.message}"
             }
-
-            override fun onFailure(call: Call<T>, t: Throwable) {
-                _error.value = "$action gagal: ${t.message}"
-            }
-        })
+        }
     }
 }

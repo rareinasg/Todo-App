@@ -5,4 +5,3 @@ data class Todo(
     val title: String,
     val completed: Boolean = false
 )
-

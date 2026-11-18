@@ -1,0 +1,15 @@
+11-18 19:19:06.870  4127  4127 D FLOW    : 7. VIEW: recomposition, jumlah todo=0
+11-18 19:19:06.871  4127  4186 I okhttp.OkHttpClient: --> GET http://10.0.2.2:3000/api/todos
+11-18 19:19:06.871  4127  4186 I okhttp.OkHttpClient: --> END GET
+11-18 19:19:06.878  4127  4186 I okhttp.OkHttpClient: <-- 500 Internal Server Error http://10.0.2.2:3000/api/todos (7ms)
+11-18 19:19:06.878  4127  4186 I okhttp.OkHttpClient: X-Powered-By: Express
+11-18 19:19:06.878  4127  4186 I okhttp.OkHttpClient: Access-Control-Allow-Origin: *
+11-18 19:19:06.878  4127  4186 I okhttp.OkHttpClient: Content-Type: application/json; charset=utf-8
+11-18 19:19:06.878  4127  4186 I okhttp.OkHttpClient: Content-Length: 28
+11-18 19:19:06.878  4127  4186 I okhttp.OkHttpClient: ETag: W/"1c-r14PUm6zCGhOams4ZjnkJUisPFc"
+11-18 19:19:06.879  4127  4186 I okhttp.OkHttpClient: Date: Wed, 18 Nov 2026 12:19:07 GMT
+11-18 19:19:06.879  4127  4186 I okhttp.OkHttpClient: Connection: keep-alive
+11-18 19:19:06.879  4127  4186 I okhttp.OkHttpClient: Keep-Alive: timeout=5
+11-18 19:19:06.879  4127  4186 I okhttp.OkHttpClient: {"message":"Database error"}
+11-18 19:19:06.879  4127  4186 I okhttp.OkHttpClient: <-- END HTTP (28-byte body)
+11-18 19:19:07.056  4127  4127 D FLOW    : 7. VIEW: recomposition, jumlah todo=0

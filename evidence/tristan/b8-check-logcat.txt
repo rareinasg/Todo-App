@@ -1,0 +1,15 @@
+11-18 19:22:20.697  4527  4527 D FLOW    : 1b. VIEW: checkbox Eat -> true
+11-18 19:22:20.697  4527  4527 D FLOW    : 2b. VIEWMODEL: updateTodo(Todo(id=1, title=Eat, completed=true))
+11-18 19:22:20.698  4527  4596 I okhttp.OkHttpClient: --> PUT http://10.0.2.2:3000/api/todos/1
+11-18 19:22:20.698  4527  4596 I okhttp.OkHttpClient: {"completed":true,"id":1,"title":"Eat"}
+11-18 19:22:20.698  4527  4596 I okhttp.OkHttpClient: --> END PUT (39-byte body)
+11-18 19:22:20.710  4527  4596 I okhttp.OkHttpClient: <-- 204 No Content http://10.0.2.2:3000/api/todos/1 (11ms)
+11-18 19:22:20.710  4527  4596 I okhttp.OkHttpClient: <-- END HTTP
+11-18 19:22:20.712  4527  4527 D FLOW    : 5. VIEWMODEL: onResponse code=204
+11-18 19:22:20.713  4527  4596 I okhttp.OkHttpClient: --> GET http://10.0.2.2:3000/api/todos
+11-18 19:22:20.713  4527  4596 I okhttp.OkHttpClient: --> END GET
+11-18 19:22:20.714  4527  4596 I okhttp.OkHttpClient: <-- 200 OK http://10.0.2.2:3000/api/todos (1ms)
+11-18 19:22:20.714  4527  4596 I okhttp.OkHttpClient: [{"id":1,"title":"Eat","completed":true},{"id":2,"title":"Sleep","completed":true},{"id":5,"title":"Drink","completed":false},{"id":6,"title":"BelajarRetrofit","completed":false},{"id":7,"title":"LogcatDemo","completed":false}]
+11-18 19:22:20.714  4527  4596 I okhttp.OkHttpClient: <-- END HTTP (227-byte body)
+11-18 19:22:20.715  4527  4527 D FLOW    : 6. VIEWMODEL: _todos diperbarui, jumlah=5
+11-18 19:22:20.742  4527  4527 D FLOW    : 7. VIEW: recomposition, jumlah todo=5

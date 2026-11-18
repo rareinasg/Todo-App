@@ -1,0 +1,12 @@
+11-18 19:16:05.062  3499  3499 D FLOW    : 7. VIEW: recomposition, jumlah todo=4
+11-18 19:16:05.111  3499  3499 D FLOW    : 7. VIEW: recomposition, jumlah todo=4
+11-18 19:16:06.147  3499  3499 D FLOW    : 1. VIEW: tombol Add diklik, title=E1Test
+11-18 19:16:06.147  3499  3499 D FLOW    : 2. VIEWMODEL: addTodo(Todo(id=0, title=E1Test, completed=false))
+11-18 19:16:06.150  3499  3535 I okhttp.OkHttpClient: --> POST http://10.0.2.2:3000/api/todos
+11-18 19:16:06.150  3499  3535 I okhttp.OkHttpClient: Content-Type: application/json; charset=UTF-8
+11-18 19:16:06.150  3499  3535 I okhttp.OkHttpClient: Content-Length: 43
+11-18 19:16:06.150  3499  3535 I okhttp.OkHttpClient: {"completed":false,"id":0,"title":"E1Test"}
+11-18 19:16:06.150  3499  3535 I okhttp.OkHttpClient: --> END POST (43-byte body)
+11-18 19:16:06.152  3499  3499 D FLOW    : 7. VIEW: recomposition, jumlah todo=4
+11-18 19:16:06.158  3499  3535 I okhttp.OkHttpClient: <-- HTTP FAILED: java.net.ConnectException: Failed to connect to /10.0.2.2:3000
+11-18 19:16:06.180  3499  3499 D FLOW    : 7. VIEW: recomposition, jumlah todo=4

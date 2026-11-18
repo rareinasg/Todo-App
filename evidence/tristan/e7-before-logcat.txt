@@ -1,0 +1,16 @@
+11-18 19:20:23.501  4383  4383 D FLOW    : 7. VIEW: recomposition, jumlah todo=0
+11-18 19:20:23.501  4383  4449 I okhttp.OkHttpClient: --> GET http://10.0.2.2:3000/api/todos
+11-18 19:20:23.501  4383  4449 I okhttp.OkHttpClient: --> END GET
+11-18 19:20:23.511  4383  4449 I okhttp.OkHttpClient: <-- 200 OK http://10.0.2.2:3000/api/todos (9ms)
+11-18 19:20:23.511  4383  4449 I okhttp.OkHttpClient: X-Powered-By: Express
+11-18 19:20:23.511  4383  4449 I okhttp.OkHttpClient: Access-Control-Allow-Origin: *
+11-18 19:20:23.511  4383  4449 I okhttp.OkHttpClient: Content-Type: application/json; charset=utf-8
+11-18 19:20:23.511  4383  4449 I okhttp.OkHttpClient: Content-Length: 180
+11-18 19:20:23.511  4383  4449 I okhttp.OkHttpClient: ETag: W/"b4-Q4S7u+4DkZZSeTJAsqXmxqCXJgw"
+11-18 19:20:23.511  4383  4449 I okhttp.OkHttpClient: Date: Wed, 18 Nov 2026 12:20:23 GMT
+11-18 19:20:23.512  4383  4449 I okhttp.OkHttpClient: Connection: keep-alive
+11-18 19:20:23.512  4383  4449 I okhttp.OkHttpClient: Keep-Alive: timeout=5
+11-18 19:20:23.512  4383  4449 I okhttp.OkHttpClient: [{"id":1,"title":"Eat","completed":false},{"id":2,"title":"Sleep","completed":true},{"id":5,"title":"Drink","completed":false},{"id":6,"title":"BelajarRetrofit","completed":false}]
+11-18 19:20:23.512  4383  4449 I okhttp.OkHttpClient: <-- END HTTP (180-byte body)
+11-18 19:20:23.692  4383  4383 D FLOW    : 6. VIEWMODEL: _todos diperbarui, jumlah=4
+11-18 19:20:23.696  4383  4383 D FLOW    : 7. VIEW: recomposition, jumlah todo=4

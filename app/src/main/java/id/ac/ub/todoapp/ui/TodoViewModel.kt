@@ -49,42 +49,40 @@ class TodoViewModel : ViewModel() {
                 _isLoading.value = false
             }
         }
-        }
     }
 
     // CREATE
-    fun addTodo(todo: Todo) {
-        api.addTodo(todo).enqueueThenRefresh("Tambah todo")
+    fun addTodo(todo: Todo) = mutate("Tambah todo") {
+        api.addTodo(todo)
     }
 
     // UPDATE
-    fun updateTodo(todo: Todo) {
-        api.updateTodo(todo.id, todo).enqueueThenRefresh("Ubah todo")
+    fun updateTodo(todo: Todo) = mutate("Update todo") {
+        api.updateTodo(todo.id, todo)
     }
 
     // DELETE
-    fun deleteTodo(id: Int) {
-        api.deleteTodo(id).enqueueThenRefresh("Hapus todo")
+    fun deleteTodo(id: Int) = mutate("Delete todo") {
+        api.deleteTodo(id)
     }
 
     fun clearError() {
         _error.value = null
     }
 
-    // Jika sukses, muat ulang data dari server supaya UI selalu sesuai database.
-    private fun <T> Call<T>.enqueueThenRefresh(action: String) {
-        enqueue(object : Callback<T> {
-            override fun onResponse(call: Call<T>, response: Response<T>) {
+    // Satu fungsi untuk semua operasi tulis: panggil API, cek hasil, muat ulang.
+    private fun <T> mutate(action: String, call: suspend() -> Response<T>) {
+        viewModelScope.launch {
+            try {
+                val response = call()
                 if (response.isSuccessful) {
                     fetchTodos()
                 } else {
-                    _error.value = "$action gagal: HTTP ${response.code()}"
+                    _error.value = "$action gagal: HTTP Response ${response.code()}"
                 }
+            } catch (e: IOException) {
+                _error.value = "$action gagal: ${e.message}"
             }
-
-            override fun onFailure(call: Call<T>, t: Throwable) {
-                _error.value = "$action gagal: ${t.message}"
-            }
-        })
+        }
     }
 }
